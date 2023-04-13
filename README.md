@@ -7,10 +7,10 @@
 1. authentication(인증서버) 로드벨런싱
 2. RewritePath 지정
 3. Cookie Header 제외
-4. __특정 경로로 접근 시 Authenticaion Header 검증(Authentication Server 마저 구축 후 설정)__
+4. ~~특정 경로로 접근 시 Authenticaion Header 검증(Authentication Server 마저 구축 후 설정)~~
 
 # Information
-회원가입 : http://localhost:8000/auth/signup
-로그인 : http://localhost:8000/auth/login
-사용자 정보 : http://localhost:8000/auth/{userId}
+회원가입 : http://localhost:8000/auth/signup  
+로그인 : http://localhost:8000/auth/login  
+사용자 정보 : http://localhost:8000/auth/{userId}  
 DB값 전체 parsing : http://localhost:8000/parse/getAllData
