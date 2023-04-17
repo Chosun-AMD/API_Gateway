@@ -1,8 +1,6 @@
 package com.example.apigateway.Filter;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
 
 import com.google.common.net.HttpHeaders;
@@ -22,12 +20,10 @@ import java.util.Date;
 @Slf4j
 public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<AuthorizationHeaderFilter.Config> {
     Environment env;
-
     public AuthorizationHeaderFilter(Environment env){
         super(Config.class);
         this.env = env;
     }
-
     public static class Config {
 
     }
