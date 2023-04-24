@@ -1,8 +1,9 @@
 server:
   port: 8000
 
-token:
-  secret: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJmb28iOiJiYXIiLCJpYXQiOjE0OTg1ODY1ODAsImV4cCI6MTQ5OTE5MTM4MH0YMSZ1PmRsjxyrtkLADayLJ99OEz0BzgpFZmeVXSRE8
+#token:
+#  expiration_time: 3600
+#  secret: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJmb28iOiJiYXIiLCJpYXQiOjE0OTg1ODY1ODAsImV4cCI6MTQ5OTE5MTM4MH0YMSZ1PmRsjxyrtkLADayLJ99OEz0BzgpFZmeVXSRE8
 
 eureka:
   client:
@@ -15,6 +16,11 @@ eureka:
 spring:
   application:
     name: gateway-service
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
   cloud:
     gateway:
       routes:
@@ -56,6 +62,26 @@ spring:
             - AuthorizationHeaderFilter   # AuthorizationHeader 검증
 
         - id: parse-service
-          uri: http://localhost:9001/
+          uri: lb://AMD-Backend-parse
           predicates:
             - Path=/parse/**
+
+        - id: auth-service
+          uri: lb://AMD-Backend-Auth
+          predicates:
+            - Path=/auth/actuator/**
+            - Method=GET, POST
+          filters:
+            - RewritePath=/auth/(?<segment>.*), /$\{segment}
+
+
+
+#token:
+#  expiration_time: 3600
+#  secret: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJmb28iOiJiYXIiLCJpYXQiOjE0OTg1ODY1ODAsImV4cCI6MTQ5OTE5MTM4MH0YMSZ1PmRsjxyrtkLADayLJ99OEz0BzgpFZmeVXSRE8
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans, httptrace, busrefresh
