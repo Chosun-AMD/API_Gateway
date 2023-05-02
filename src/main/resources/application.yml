@@ -59,7 +59,7 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user/(?<segment>.*), /$\{segment}
-            - AuthorizationHeaderFilter   # AuthorizationHeader 검증
+            # - AuthorizationHeaderFilter   # AuthorizationHeader 검증
 
         - id: parse-service
           uri: lb://AMD-Backend-parse
