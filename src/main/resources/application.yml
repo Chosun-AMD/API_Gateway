@@ -76,9 +76,9 @@ spring:
 
 
 
-#token:
-#  expiration_time: 3600
-#  secret: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJmb28iOiJiYXIiLCJpYXQiOjE0OTg1ODY1ODAsImV4cCI6MTQ5OTE5MTM4MH0YMSZ1PmRsjxyrtkLADayLJ99OEz0BzgpFZmeVXSRE8
+token:
+  expiration_time: 3600
+  secret: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJmb28iOiJiYXIiLCJpYXQiOjE0OTg1ODY1ODAsImV4cCI6MTQ5OTE5MTM4MH0YMSZ1PmRsjxyrtkLADayLJ99OEz0BzgpFZmeVXSRE8
 
 management:
   endpoints:
