@@ -70,6 +70,7 @@ spring:
           uri: http://10.96.100.39:9001
           predicates:
             - Path=/react/**
+            - Method=GET, POST
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/react/(?<segment>.*), /$\{segment}
