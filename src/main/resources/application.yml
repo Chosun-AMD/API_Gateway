@@ -77,7 +77,7 @@ spring:
             # - AuthorizationHeaderFilter   # AuthorizationHeader 검증
 
         - id: auth-service
-          # uri: lb://AMD-Backend-Auth
+          #uri: lb://AMD-Backend-Auth
           uri: http://10.96.100.34:9000
           predicates:
             - Path=/auth/actuator/**
